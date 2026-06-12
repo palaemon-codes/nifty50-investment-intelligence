@@ -178,7 +178,7 @@ class AnomalyDetector:
             return []
 
         df = df.copy()
-        returns = df['close'].pct_change().dropna()
+        returns = df['close'].pct_change()  # Keep NaN at position 0 so lengths align with df
 
         # Calculate rolling statistics
         roll_mean_60d = returns.rolling(window=60).mean() * 252  # Annualized
