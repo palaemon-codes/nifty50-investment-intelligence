@@ -1,0 +1,25 @@
+# NIFTY-50 Investment Intelligence Platform - Dependencies
+# Open Projects 2026, Cultural Council, IIT Roorkee
+
+# Core
+streamlit>=1.28.0
+pandas>=1.5.0
+numpy>=1.23.0
+matplotlib>=3.6.0
+plotly>=5.14.0
+
+# Machine Learning & Statistics
+scikit-learn>=1.2.0
+xgboost>=1.7.0
+scipy>=1.10.0
+
+# Deep Learning (optional but recommended for LSTM)
+tensorflow>=2.12.0
+
+# Visualization & Reporting
+seaborn>=0.12.0
+jinja2>=3.1.0
+
+# Utilities
+python-dateutil>=2.8.0
+pytz>=2022.0
