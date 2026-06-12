@@ -204,6 +204,14 @@ nifty50-investment-intelligence/
 
 ---
 
+## Demonstration
+
+A walkthrough video of the platform is available in the `reports/` folder:
+
+📹 [`reports/demonstration_video.mov`](reports/demonstration_video.mov)
+
+---
+
 ## Disclaimer
 
 This platform is built for **educational purposes** as part of Open Projects 2026 at IIT Roorkee. It does NOT constitute financial advice. All predictions, portfolio recommendations, and risk assessments are based on historical data and statistical models. Past performance does not guarantee future results.
