@@ -76,7 +76,6 @@ nifty50-investment-intelligence/
 │   ├── INFY.csv
 │   └── ... (all other stock CSVs)
 ├── src/
-├── models/
 ├── app.py
 └── ...
 ```
@@ -113,7 +112,6 @@ nifty50-investment-intelligence/
 │   └── forecasting.py          # Multi-method forecasting
 │
 ├── data/                       # Dataset directory (CSV files)
-├── models/                     # Saved trained models
 ├── notebooks/                  # Jupyter notebooks (EDA)
 └── reports/                    # Generated reports
 ```
