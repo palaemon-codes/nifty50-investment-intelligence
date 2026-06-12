@@ -37,22 +37,40 @@ The primary dataset used is the NIFTY-50 Stock Market Dataset from Kaggle, spann
 
 ### 2.2 Data Quality Assessment
 
+After loading the dataset, the following observations were made:
+
+- **Total stocks loaded:** 49 out of 50 CSV files (1 stock had insufficient data and was skipped)
+- **Date range:** January 3, 2000 to April 30, 2021 (over 21 years of trading data)
+- **Column format:** The Kaggle dataset uses Title Case columns (Date, Open, High, Low, Close, Volume, etc.) which were standardized to lowercase for processing
+- **Metadata:** The stock_metadata.csv file provided company names, industry classifications, and ISIN codes for all 50 constituents
+- **Combined file:** NIFTY50_all.csv was present but skipped during individual stock loading (it contains the same data merged into a single file)
+
 The dataset required cleaning for:
-- Inconsistent column naming across different CSV files
-- Missing values in volume and price columns
-- Date parsing with mixed formats
-- Duplicate entries for the same trading date
-- Price anomalies requiring sanity checks (high >= low, etc.)
+- Standardizing column names from Title Case to lowercase (Date -> date, Open -> open, etc.)
+- Handling the `stock_metadata.csv` and `NIFTY50_all.csv` files separately
+- Parsing YYYY-MM-DD date format consistently
+- Converting price and volume columns to numeric types
+- Removing rows with missing close prices
 
-### 2.3 Key Observations
+### 2.3 Key Observations from EDA
 
-1. **Sector Distribution:** Banking and Financial Services constitute approximately 35% of the index weight, followed by Information Technology (~18%) and Energy (~15%).
+The exploratory data analysis revealed several important patterns:
 
-2. **Return Characteristics:** Daily returns exhibit fat tails (excess kurtosis > 3 for most stocks), indicating more extreme events than a normal distribution would predict. This has implications for risk modeling.
+1. **Sector Distribution:** The NIFTY-50 dataset spans 14 industry sectors. Financial Services dominates with 9 stocks, followed by Energy (7), Consumer Goods (6), Metals (5), Automobile (5), and IT (5). The remaining sectors (Cement, Pharma, Telecom, Construction, Services, Fertilizers, Media) have 1-3 stocks each.
 
-3. **Volatility Clustering:** Periods of high volatility tend to cluster together, consistent with established financial market behavior. This validates the use of GARCH-style volatility models.
+2. **Return Characteristics:** Using RELIANCE as a representative stock, daily returns show a mean of 0.07% with a standard deviation of 2.40%. The return distribution exhibits significant fat tails with skewness of -3.64 and excess kurtosis of 82.31. The best single-day gain was 21.37% and the worst single-day loss was -51.53%. Positive trading days occurred 51.6% of the time. These extreme values confirm that normality assumptions significantly underestimate tail risk.
 
-4. **Market Regimes:** The data covers several distinct market regimes including the 2008 Global Financial Crisis, the 2014-2015 bull market, the 2018 correction, and the COVID-19 crash and recovery of 2020-2021.
+3. **Correlation Structure:** The average pairwise correlation among the top 7 NIFTY-50 stocks (RELIANCE, TCS, HDFCBANK, INFY, ICICIBANK, ITC, SBIN) is 0.275, indicating meaningful diversification potential within the index. Same-sector stocks show higher correlations (e.g., banking stocks tend to move together).
+
+4. **Volatility Clustering:** Periods of high volatility tend to cluster together, consistent with established financial market behavior. RELIANCE shows an annualized volatility of 38.2% over the full period, with significant spikes during crisis periods.
+
+5. **Sector Performance:** Over the 21-year period, Cement & Cement Products showed the highest average total return (15,179%), followed by Financial Services (2,365%) and Automobile (1,878%). However, these are nominal total returns over two decades and do not account for risk.
+
+6. **Market-Wide Events:** 281 trading dates were identified where more than 40% of stocks experienced extreme moves (>3% daily change). The most significant events include:
+   - March 23, 2020: 48 stocks affected, average return -12.94% (COVID-19 crash bottom)
+   - March 12, 2020: 48 stocks affected, average return -8.61% (COVID-19 initial crash)
+   - May 18, 2009: 44 stocks affected, average return +14.90% (post-election rally)
+   - October 24, 2008: 43 stocks affected, average return -9.85% (Global Financial Crisis)
 
 ---
 
