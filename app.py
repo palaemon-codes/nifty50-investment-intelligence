@@ -2,7 +2,8 @@
 NIFTY-50 Investment Intelligence Platform
 Main Streamlit Dashboard Application
 
-Built by: Praneshwar Kannan Kommiya (23117102)
+Name: Praneshwar Kannan Kommiya
+Enrollment Number: 23117102
 B.Tech Mechanical Engineering - 4Y, IIT Roorkee
 Open Projects 2026, Cultural Council
 
@@ -42,7 +43,6 @@ from forecasting import Forecaster
 # ============================================================
 st.set_page_config(
     page_title="NIFTY-50 Investment Intelligence",
-    page_icon="📈",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -297,21 +297,20 @@ def display_metric_card(value, label, color_scheme="primary"):
 # Sidebar Navigation
 # ============================================================
 with st.sidebar:
-    st.image("https://img.icons8.com/fluency/96/stock-share.png", width=80)
-    st.markdown("## 📊 Navigation")
+    st.markdown("## Navigation")
 
     page = st.radio(
         "Select Module",
-        ["🏠 Home", "📈 Stock Analysis", "💼 Portfolio Builder",
-         "⚠️ Risk Assessment", "🔍 Anomaly Detection", "🔮 Forecasting",
-         "📋 About & Guide"],
+        ["Home", "Stock Analysis", "Portfolio Builder",
+         "Risk Assessment", "Anomaly Detection", "Forecasting",
+         "About & Guide"],
         label_visibility="collapsed",
     )
 
     st.markdown("---")
 
     # Data loading section in sidebar
-    st.markdown("### 📂 Data Management")
+    st.markdown("### Data Management")
 
     # Auto-detect data folder
     data_folder = DATA_DIR
@@ -325,27 +324,27 @@ with st.sidebar:
 
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("🔄 Load Data", use_container_width=True):
+        if st.button("Load Data", use_container_width=True):
             load_data_from_folder(data_folder)
 
     with col2:
-        if st.button("🗑️ Clear", use_container_width=True):
+        if st.button("Clear", use_container_width=True):
             st.session_state.data_loaded = False
             st.session_state.data_loader = None
             st.rerun()
 
     if st.session_state.data_loaded:
         loader = st.session_state.data_loader
-        st.success(f"✅ {len(loader.all_symbols)} stocks loaded")
+        st.success(f"{len(loader.all_symbols)} stocks loaded")
     else:
-        st.info("📁 Place the nifty_data folder in ~/Downloads/ and click Load Data")
+        st.info("Place the nifty_data folder in data/ and click Load Data")
 
     st.markdown("---")
     st.markdown("""
     <div style="font-size: 0.8rem; color: #888;">
-    <strong>Built by:</strong><br>
-    Praneshwar Kannan Kommiya<br>
-    23117102 | B.Tech ME - 4Y<br>
+    <strong>Name:</strong> Praneshwar Kannan Kommiya<br>
+    <strong>Enrollment No:</strong> 23117102<br>
+    B.Tech ME - 4Y<br>
     Open Projects 2026<br>
     Cultural Council, IIT Roorkee
     </div>
@@ -355,8 +354,8 @@ with st.sidebar:
 # ============================================================
 # PAGE: Home
 # ============================================================
-if page == "🏠 Home":
-    st.markdown('<div class="main-header">📊 NIFTY-50 Investment Intelligence Platform</div>',
+if page == "Home":
+    st.markdown('<div class="main-header">NIFTY-50 Investment Intelligence Platform</div>',
                 unsafe_allow_html=True)
     st.markdown("##### AI-Powered Decision Support for Data-Driven Investing")
 
@@ -374,15 +373,15 @@ if page == "🏠 Home":
 
         #### What You Can Do Here:
 
-        - **📈 Analyze Stocks** — Deep-dive into individual stocks with technical indicators,
+        - **Analyze Stocks** — Deep-dive into individual stocks with technical indicators,
           price charts, and ML-powered predictions
-        - **💼 Build Portfolios** — Generate optimized portfolios for Conservative, Balanced,
+        - **Build Portfolios** — Generate optimized portfolios for Conservative, Balanced,
           and Aggressive investor profiles
-        - **⚠️ Assess Risk** — Evaluate risk metrics including volatility, Sharpe Ratio,
+        - **Assess Risk** — Evaluate risk metrics including volatility, Sharpe Ratio,
           Value at Risk, and maximum drawdown
-        - **🔍 Detect Anomalies** — Identify unusual market patterns, volume surges,
+        - **Detect Anomalies** — Identify unusual market patterns, volume surges,
           and volatility spikes
-        - **🔮 Forecast Trends** — Multi-method forecasting using regression, exponential
+        - **Forecast Trends** — Multi-method forecasting using regression, exponential
           smoothing, and Monte Carlo simulation
 
         #### Dataset:
@@ -392,12 +391,12 @@ if page == "🏠 Home":
         """)
 
         st.markdown('<div class="info-box">'
-                     '💡 <strong>Getting Started:</strong> First, load the dataset using the sidebar. '
+                     '<strong>Getting Started:</strong> First, load the dataset using the sidebar. '
                      'Then navigate to any module to start your analysis.'
                      '</div>', unsafe_allow_html=True)
 
     with col2:
-        st.markdown("### 📊 Platform Stats")
+        st.markdown("### Platform Stats")
         if st.session_state.data_loaded:
             loader = st.session_state.data_loader
             n_stocks = len(loader.all_symbols)
@@ -424,13 +423,12 @@ if page == "🏠 Home":
     st.markdown("---")
 
     # Quick features preview
-    st.markdown("### 🚀 Platform Features at a Glance")
+    st.markdown("### Platform Features at a Glance")
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
         st.markdown("""
         <div style="text-align: center; padding: 1rem;">
-            <h2>🤖</h2>
             <strong>ML Predictions</strong>
             <p style="font-size: 0.85rem;">XGBoost & LSTM models for price direction and return forecasting</p>
         </div>
@@ -439,7 +437,6 @@ if page == "🏠 Home":
     with col2:
         st.markdown("""
         <div style="text-align: center; padding: 1rem;">
-            <h2>📐</h2>
             <strong>Portfolio Optimization</strong>
             <p style="font-size: 0.85rem;">Modern Portfolio Theory with Efficient Frontier analysis</p>
         </div>
@@ -448,7 +445,6 @@ if page == "🏠 Home":
     with col3:
         st.markdown("""
         <div style="text-align: center; padding: 1rem;">
-            <h2>🛡️</h2>
             <strong>Risk Analytics</strong>
             <p style="font-size: 0.85rem;">10+ risk metrics including VaR, CVaR, and drawdown analysis</p>
         </div>
@@ -457,7 +453,6 @@ if page == "🏠 Home":
     with col4:
         st.markdown("""
         <div style="text-align: center; padding: 1rem;">
-            <h2>🔮</h2>
             <strong>Forecasting</strong>
             <p style="font-size: 0.85rem;">Monte Carlo simulation & multi-method trend forecasting</p>
         </div>
@@ -467,12 +462,12 @@ if page == "🏠 Home":
 # ============================================================
 # PAGE: Stock Analysis
 # ============================================================
-elif page == "📈 Stock Analysis":
-    st.markdown('<div class="main-header">📈 Stock Analysis & Prediction</div>',
+elif page == "Stock Analysis":
+    st.markdown('<div class="main-header">Stock Analysis & Prediction</div>',
                 unsafe_allow_html=True)
 
     if not st.session_state.data_loaded:
-        st.warning("⚠️ Please load the dataset first using the sidebar.")
+        st.warning("Please load the dataset first using the sidebar.")
         st.stop()
 
     loader = st.session_state.data_loader
@@ -489,7 +484,7 @@ elif page == "📈 Stock Analysis":
         horizon = st.selectbox("Prediction Horizon", [7, 15, 30, 60, 90], index=2)
     with col3:
         st.markdown("<br>", unsafe_allow_html=True)
-        run_analysis = st.button("🔍 Run Analysis", use_container_width=True)
+        run_analysis = st.button("Run Analysis", use_container_width=True)
 
     if run_analysis:
         with st.spinner(f"Analyzing {selected_stock}... This may take a minute."):
@@ -530,7 +525,7 @@ elif page == "📈 Stock Analysis":
 
             # ---- Tab layout for stock analysis ----
             tab1, tab2, tab3, tab4 = st.tabs(
-                ["📊 Price & Indicators", "🤖 ML Prediction", "⚠️ Risk Profile", "📝 Summary"]
+                ["Price & Indicators", "ML Prediction", "Risk Profile", "Summary"]
             )
 
             # Tab 1: Price chart and technical indicators
@@ -594,7 +589,7 @@ elif page == "📈 Stock Analysis":
 
             # Tab 2: ML Predictions
             with tab2:
-                st.markdown("### 🤖 Machine Learning Price Prediction")
+                st.markdown("### Machine Learning Price Prediction")
 
                 try:
                     predictor = st.session_state.predictor
@@ -635,9 +630,8 @@ elif page == "📈 Stock Analysis":
                             col1, col2, col3 = st.columns(3)
                             with col1:
                                 direction = future_pred['direction']
-                                emoji = "🟢" if direction == "UP" else "🔴"
                                 display_metric_card(
-                                    f"{emoji} {direction}",
+                                    direction,
                                     "Predicted Direction",
                                     "success" if direction == "UP" else "warning"
                                 )
@@ -671,7 +665,7 @@ elif page == "📈 Stock Analysis":
 
             # Tab 3: Risk Profile
             with tab3:
-                st.markdown("### ⚠️ Stock Risk Assessment")
+                st.markdown("### Stock Risk Assessment")
 
                 risk_assessor = st.session_state.risk_assessor
                 risk_report = risk_assessor.assess_stock(df, selected_stock)
@@ -733,7 +727,7 @@ elif page == "📈 Stock Analysis":
 
             # Tab 4: Summary
             with tab4:
-                st.markdown("### 📝 Investment Summary")
+                st.markdown("### Investment Summary")
 
                 # Generate comprehensive summary
                 st.markdown(f"""
@@ -763,12 +757,12 @@ elif page == "📈 Stock Analysis":
 # ============================================================
 # PAGE: Portfolio Builder
 # ============================================================
-elif page == "💼 Portfolio Builder":
-    st.markdown('<div class="main-header">💼 Portfolio Construction</div>',
+elif page == "Portfolio Builder":
+    st.markdown('<div class="main-header">Portfolio Construction</div>',
                 unsafe_allow_html=True)
 
     if not st.session_state.data_loaded:
-        st.warning("⚠️ Please load the dataset first using the sidebar.")
+        st.warning("Please load the dataset first using the sidebar.")
         st.stop()
 
     loader = st.session_state.data_loader
@@ -780,7 +774,7 @@ elif page == "💼 Portfolio Builder":
     Three investor profiles are available, each with different risk-return characteristics.
     """)
 
-    if st.button("🚀 Generate All Portfolios", use_container_width=True, type="primary"):
+    if st.button("Generate All Portfolios", use_container_width=True, type="primary"):
         with st.spinner("Building optimized portfolios... This may take a moment."):
             portfolio_builder = PortfolioConstructor(
                 loader.stock_data,
@@ -797,7 +791,7 @@ elif page == "💼 Portfolio Builder":
 
         # Three tabs for three profiles
         tab1, tab2, tab3 = st.tabs(
-            ["🛡️ Conservative", "⚖️ Balanced", "🚀 Aggressive"]
+            ["Conservative", "Balanced", "Aggressive"]
         )
 
         for tab, profile_name in [(tab1, "Conservative"), (tab2, "Balanced"), (tab3, "Aggressive")]:
@@ -836,7 +830,7 @@ elif page == "💼 Portfolio Builder":
                 # Allocation
                 col1, col2 = st.columns([1, 1])
                 with col1:
-                    st.markdown("#### 📊 Portfolio Allocation")
+                    st.markdown("#### Portfolio Allocation")
                     allocation = portfolio.get('allocation', [])
                     if allocation:
                         alloc_df = pd.DataFrame(allocation)
@@ -870,7 +864,7 @@ elif page == "💼 Portfolio Builder":
                         fig_sector.update_layout(height=400)
                         st.plotly_chart(fig_sector, use_container_width=True)
 
-                    st.markdown("#### 📝 Stock Selection Rationale")
+                    st.markdown("#### Stock Selection Rationale")
                     explainer = st.session_state.explainer
                     for item in allocation[:5]:
                         reason = portfolio_builder.get_stock_recommendation_reasoning(
@@ -892,7 +886,7 @@ elif page == "💼 Portfolio Builder":
     # Efficient Frontier visualization
     if st.session_state.portfolio_data and hasattr(st.session_state, 'portfolio_builder'):
         st.markdown("---")
-        st.markdown("### 📈 Efficient Frontier")
+        st.markdown("### Efficient Frontier")
         st.markdown("""
         The Efficient Frontier shows optimal portfolios that offer the highest expected return
         for a given level of risk. Portfolios below the frontier are sub-optimal.
@@ -944,12 +938,12 @@ elif page == "💼 Portfolio Builder":
 # ============================================================
 # PAGE: Risk Assessment
 # ============================================================
-elif page == "⚠️ Risk Assessment":
-    st.markdown('<div class="main-header">⚠️ Risk Assessment Module</div>',
+elif page == "Risk Assessment":
+    st.markdown('<div class="main-header">Risk Assessment Module</div>',
                 unsafe_allow_html=True)
 
     if not st.session_state.data_loaded:
-        st.warning("⚠️ Please load the dataset first using the sidebar.")
+        st.warning("Please load the dataset first using the sidebar.")
         st.stop()
 
     loader = st.session_state.data_loader
@@ -968,7 +962,7 @@ elif page == "⚠️ Risk Assessment":
         key="risk_stock_selector",
     )
 
-    if st.button("📊 Analyze Risk", use_container_width=True):
+    if st.button("Analyze Risk", use_container_width=True):
         with st.spinner("Computing risk metrics..."):
             df = loader.get_stock(selected)
             if df is None:
@@ -1056,7 +1050,7 @@ elif page == "⚠️ Risk Assessment":
 
     # Multi-stock comparison
     st.markdown("---")
-    st.markdown("### 📊 Cross-Stock Risk Comparison")
+    st.markdown("### Cross-Stock Risk Comparison")
 
     if st.button("Compare Top Stocks by Sharpe Ratio", use_container_width=True):
         with st.spinner("Computing risk metrics for all stocks..."):
@@ -1087,12 +1081,12 @@ elif page == "⚠️ Risk Assessment":
 # ============================================================
 # PAGE: Anomaly Detection
 # ============================================================
-elif page == "🔍 Anomaly Detection":
-    st.markdown('<div class="main-header">🔍 Market Anomaly Detection</div>',
+elif page == "Anomaly Detection":
+    st.markdown('<div class="main-header">Market Anomaly Detection</div>',
                 unsafe_allow_html=True)
 
     if not st.session_state.data_loaded:
-        st.warning("⚠️ Please load the dataset first using the sidebar.")
+        st.warning("Please load the dataset first using the sidebar.")
         st.stop()
 
     loader = st.session_state.data_loader
@@ -1112,7 +1106,7 @@ elif page == "🔍 Anomaly Detection":
         )
     with col2:
         st.markdown("<br>", unsafe_allow_html=True)
-        scan_btn = st.button("🔍 Scan for Anomalies", use_container_width=True, type="primary")
+        scan_btn = st.button("Scan for Anomalies", use_container_width=True, type="primary")
 
     if scan_btn:
         with st.spinner(f"Scanning {selected_stock} for anomalies..."):
@@ -1199,7 +1193,7 @@ elif page == "🔍 Anomaly Detection":
 
                 # Anomaly explanation
                 st.markdown('<div class="warning-box">'
-                            '<strong>⚠️ Understanding Anomalies:</strong> Anomalies represent statistically '
+                            '<strong>Understanding Anomalies:</strong> Anomalies represent statistically '
                             'unusual market behavior. While some anomalies may correspond to known events '
                             '(earnings announcements, policy changes, global events), others may indicate '
                             'market inefficiencies or data quality issues. Investors should investigate '
@@ -1248,12 +1242,12 @@ elif page == "🔍 Anomaly Detection":
 # ============================================================
 # PAGE: Forecasting
 # ============================================================
-elif page == "🔮 Forecasting":
-    st.markdown('<div class="main-header">🔮 Advanced Forecasting</div>',
+elif page == "Forecasting":
+    st.markdown('<div class="main-header">Advanced Forecasting</div>',
                 unsafe_allow_html=True)
 
     if not st.session_state.data_loaded:
-        st.warning("⚠️ Please load the dataset first using the sidebar.")
+        st.warning("Please load the dataset first using the sidebar.")
         st.stop()
 
     loader = st.session_state.data_loader
@@ -1272,7 +1266,7 @@ elif page == "🔮 Forecasting":
         horizon = st.selectbox("Forecast Horizon (days)", [7, 15, 30, 60, 90], index=2)
     with col3:
         st.markdown("<br>", unsafe_allow_html=True)
-        run_forecast = st.button("🔮 Generate Forecast", use_container_width=True, type="primary")
+        run_forecast = st.button("Generate Forecast", use_container_width=True, type="primary")
 
     if run_forecast:
         with st.spinner("Running multi-method forecasting..."):
@@ -1287,8 +1281,7 @@ elif page == "🔮 Forecasting":
                 if ensemble:
                     col1, col2, col3 = st.columns(3)
                     with col1:
-                        emoji = "🟢" if ensemble['direction'] == 'UP' else "🔴"
-                        display_metric_card(f"{emoji} {ensemble['direction']}", "Direction",
+                        display_metric_card(ensemble['direction'], "Direction",
                                             "success" if ensemble['direction'] == 'UP' else "warning")
                     with col2:
                         display_metric_card(f"{ensemble['expected_return_pct']:+.2f}%", "Expected Return", "primary")
@@ -1300,7 +1293,7 @@ elif page == "🔮 Forecasting":
                 # Monte Carlo simulation
                 mc = forecast_result.get('monte_carlo', {})
                 if mc:
-                    st.markdown("### 🎲 Monte Carlo Simulation")
+                    st.markdown("### Monte Carlo Simulation")
                     st.markdown(f"Based on **{mc.get('method', '')}** with annualized drift of "
                                 f"**{mc.get('annualized_drift', 0)}%** and volatility of "
                                 f"**{mc.get('annualized_volatility', 0)}%**")
@@ -1376,7 +1369,7 @@ elif page == "🔮 Forecasting":
                 # Trend forecast
                 trend = forecast_result.get('trend_forecast', {})
                 if trend:
-                    st.markdown("### 📈 Trend Regression Forecast")
+                    st.markdown("### Trend Regression Forecast")
                     st.markdown(f"**Trend Direction:** {trend.get('trend_direction', 'N/A').title()} | "
                                 f"**R²:** {trend.get('r_squared', 'N/A')}")
 
@@ -1414,7 +1407,7 @@ elif page == "🔮 Forecasting":
                 vol_fc = forecast_result.get('volatility_forecast', {})
                 if vol_fc:
                     st.markdown("---")
-                    st.markdown("### 📉 Volatility Forecast")
+                    st.markdown("### Volatility Forecast")
                     st.markdown(f"**Current Annualized Volatility:** {vol_fc.get('current_annualized_volatility', 'N/A')}%")
                     st.markdown(f"**Long-term Average Volatility:** {vol_fc.get('long_term_volatility', 'N/A')}%")
 
@@ -1445,7 +1438,7 @@ elif page == "🔮 Forecasting":
 
                 # Disclaimer
                 st.markdown('<div class="warning-box">'
-                            '<strong>⚠️ Forecast Disclaimer:</strong> All forecasts are based on historical '
+                            '<strong>Forecast Disclaimer:</strong> All forecasts are based on historical '
                             'data and statistical models. They are not guarantees of future performance. '
                             'Financial markets are influenced by many factors including economic conditions, '
                             'policy changes, and global events that models cannot predict. Use forecasts '
@@ -1459,8 +1452,8 @@ elif page == "🔮 Forecasting":
 # ============================================================
 # PAGE: About & Guide
 # ============================================================
-elif page == "📋 About & Guide":
-    st.markdown('<div class="main-header">📋 About & User Guide</div>',
+elif page == "About & Guide":
+    st.markdown('<div class="main-header">About & User Guide</div>',
                 unsafe_allow_html=True)
 
     col1, col2 = st.columns([2, 1])
@@ -1472,9 +1465,9 @@ elif page == "📋 About & Guide":
         This platform was developed as part of **Open Projects 2026** organized by the
         **Cultural Council, IIT Roorkee**.
 
-        ### Developer
+        ### Student Details
         - **Name:** Praneshwar Kannan Kommiya
-        - **ID:** 23117102
+        - **Enrollment Number:** 23117102
         - **Program:** B.Tech Mechanical Engineering (4th Year)
         - **Institution:** Indian Institute of Technology, Roorkee
 
@@ -1498,7 +1491,7 @@ elif page == "📋 About & Guide":
         """)
 
     with col2:
-        st.markdown("### 🛠️ Technology Stack")
+        st.markdown("### Technology Stack")
         st.markdown("""
         - **Python** — Core programming language
         - **Streamlit** — Web application framework
@@ -1511,9 +1504,9 @@ elif page == "📋 About & Guide":
         """)
 
     st.markdown("---")
-    st.markdown("### 📖 User Guide")
+    st.markdown("### User Guide")
 
-    with st.expander("1️⃣ Getting Started", expanded=True):
+    with st.expander("1. Getting Started", expanded=True):
         st.markdown("""
         1. **Download the dataset** from [Kaggle](https://www.kaggle.com/datasets/rohanrao/nifty50-stock-market-data/data)
         2. Extract all CSV files into the `data/` folder
@@ -1522,7 +1515,7 @@ elif page == "📋 About & Guide":
         5. Use the sidebar to load your data and navigate between modules
         """)
 
-    with st.expander("2️⃣ Stock Analysis Module"):
+    with st.expander("2. Stock Analysis Module"):
         st.markdown("""
         - Select any NIFTY-50 stock from the dropdown
         - Choose a prediction horizon (7-90 days)
@@ -1532,7 +1525,7 @@ elif page == "📋 About & Guide":
         - Review **risk metrics** including VaR, Sharpe Ratio, and drawdowns
         """)
 
-    with st.expander("3️⃣ Portfolio Builder"):
+    with st.expander("3. Portfolio Builder"):
         st.markdown("""
         - Click "Generate All Portfolios" to build three optimized portfolios
         - **Conservative:** Low risk, stable returns, suitable for capital preservation
@@ -1542,7 +1535,7 @@ elif page == "📋 About & Guide":
         - The **Efficient Frontier** visualization shows optimal risk-return tradeoffs
         """)
 
-    with st.expander("4️⃣ Risk Assessment"):
+    with st.expander("4. Risk Assessment"):
         st.markdown("""
         - Analyze individual stock risk with 10+ metrics
         - Key metrics explained:
@@ -1555,7 +1548,7 @@ elif page == "📋 About & Guide":
         - Compare risk across multiple stocks
         """)
 
-    with st.expander("5️⃣ Anomaly Detection"):
+    with st.expander("5. Anomaly Detection"):
         st.markdown("""
         - Detects three types of anomalies:
           - **Price anomalies** — Unusually large daily moves
@@ -1564,7 +1557,7 @@ elif page == "📋 About & Guide":
         - Market-wide event detection finds dates where many stocks moved unusually
         """)
 
-    with st.expander("6️⃣ Forecasting"):
+    with st.expander("6. Forecasting"):
         st.markdown("""
         - **Trend Regression** — Linear trend projection with confidence bands
         - **Exponential Smoothing** — Holt's method with trend component
@@ -1575,7 +1568,7 @@ elif page == "📋 About & Guide":
 
     st.markdown("---")
     st.markdown("""
-    ### ⚠️ Disclaimer
+    ### Disclaimer
 
     This platform is for **educational and informational purposes only**. It does not
     constitute financial advice. All predictions and recommendations are based on
@@ -1585,7 +1578,7 @@ elif page == "📋 About & Guide":
     risk tolerance, and investment goals. Past performance does not guarantee future results.
 
     ---
-    *Built with ❤️ at IIT Roorkee | Open Projects 2026 | Cultural Council*
+    Open Projects 2026 | Cultural Council | IIT Roorkee
     """)
 
 
@@ -1594,9 +1587,9 @@ elif page == "📋 About & Guide":
 # ============================================================
 st.markdown("---")
 st.markdown('<div class="footer">'
-            '📊 <strong>NIFTY-50 Investment Intelligence Platform</strong><br>'
-            'Built by <strong>Praneshwar Kannan Kommiya</strong> (23117102) | '
+            '<strong>NIFTY-50 Investment Intelligence Platform</strong><br>'
+            '<strong>Praneshwar Kannan Kommiya</strong> (23117102) | '
             'B.Tech Mechanical Engineering - 4Y<br>'
-            'Open Projects 2026 · Cultural Council · IIT Roorkee<br>'
+            'Open Projects 2026 | Cultural Council | IIT Roorkee<br>'
             '<small>For educational purposes only. Not financial advice.</small>'
             '</div>', unsafe_allow_html=True)

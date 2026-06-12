@@ -2,7 +2,7 @@
 
 **Open Projects 2026 | Cultural Council | IIT Roorkee**
 
-**Submitted by:** Praneshwar Kannan Kommiya (23117102), B.Tech Mechanical Engineering - 4Y
+**Submitted by:** Praneshwar Kannan Kommiya (Enrollment Number: 23117102), B.Tech Mechanical Engineering - 4Y
 
 ---
 

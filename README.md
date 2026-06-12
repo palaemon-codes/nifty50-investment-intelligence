@@ -1,15 +1,15 @@
-# 📊 NIFTY-50 Investment Intelligence Platform
+# NIFTY-50 Investment Intelligence Platform
 
 **Data-Driven Decision Support for Stock Market Investing**
 
 ---
 
-## 👤 Project Information
+## Project Information
 
 | Field | Details |
 |-------|---------|
-| **Developer** | Praneshwar Kannan Kommiya |
-| **ID** | 23117102 |
+| **Name** | Praneshwar Kannan Kommiya |
+| **Enrollment Number** | 23117102 |
 | **Program** | B.Tech Mechanical Engineering (4th Year) |
 | **Institution** | Indian Institute of Technology, Roorkee |
 | **Event** | Open Projects 2026, Cultural Council |
@@ -17,7 +17,7 @@
 
 ---
 
-## 📝 About The Project
+## About The Project
 
 An AI-powered investment intelligence platform that transforms raw NIFTY-50 historical market data into actionable insights for investors. The platform combines machine learning, statistical modeling, and financial analytics to provide:
 
@@ -30,12 +30,12 @@ An AI-powered investment intelligence platform that transforms raw NIFTY-50 hist
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/palaemon-codes/nifty50-investment-intelligence.git
 cd nifty50-investment-intelligence
 ```
 
@@ -91,7 +91,7 @@ The application will open in your browser at `http://localhost:8501`.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 nifty50-investment-intelligence/
@@ -120,15 +120,15 @@ nifty50-investment-intelligence/
 
 ---
 
-## 🎯 Features & Modules
+## Features & Modules
 
-### 📈 Stock Analysis
+### Stock Analysis
 - Interactive candlestick charts with Bollinger Bands & Moving Averages
 - Technical indicators: RSI, MACD, ATR, Stochastic Oscillator
 - ML-powered price prediction with directional accuracy
 - Feature importance visualization for model interpretability
 
-### 💼 Portfolio Builder
+### Portfolio Builder
 - **Conservative Portfolio:** Capital preservation, low volatility, stable returns
 - **Balanced Portfolio:** Growth + stability, sector diversification
 - **Aggressive Portfolio:** Maximum growth potential, higher risk tolerance
@@ -136,7 +136,7 @@ nifty50-investment-intelligence/
 - Sector-wise allocation breakdown
 - Stock selection rationale for each recommendation
 
-### ⚠️ Risk Assessment
+### Risk Assessment
 - Annualized Volatility
 - Sharpe Ratio & Sortino Ratio
 - Value at Risk (VaR) & Conditional VaR
@@ -145,14 +145,14 @@ nifty50-investment-intelligence/
 - Rolling risk metrics
 - Cross-stock risk comparison
 
-### 🔍 Anomaly Detection
+### Anomaly Detection
 - Price anomalies (extreme daily movements)
 - Volume surge detection
 - Volatility spike identification
 - Market-wide event detection
 - Regime change analysis
 
-### 🔮 Forecasting
+### Forecasting
 - Linear trend regression with confidence bands
 - Holt's Exponential Smoothing
 - Monte Carlo simulation (500+ paths)
@@ -161,7 +161,7 @@ nifty50-investment-intelligence/
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Component | Technology |
 |-----------|-----------|
@@ -175,7 +175,7 @@ nifty50-investment-intelligence/
 
 ---
 
-## 📊 Machine Learning Approach
+## Machine Learning Approach
 
 ### Stock Prediction Engine
 - **XGBoost Regressor:** Gradient boosting on 30+ technical features
@@ -196,7 +196,7 @@ nifty50-investment-intelligence/
 
 ---
 
-## 📋 Reproducing Results
+## Reproducing Results
 
 1. Ensure all dependencies are installed: `pip install -r requirements.txt`
 2. Download and place the dataset CSV files in the `data/` folder
@@ -206,7 +206,7 @@ nifty50-investment-intelligence/
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 This platform is built for **educational purposes** as part of Open Projects 2026 at IIT Roorkee. It does NOT constitute financial advice. All predictions, portfolio recommendations, and risk assessments are based on historical data and statistical models. Past performance does not guarantee future results.
 
@@ -214,10 +214,6 @@ Investment decisions should be made considering personal financial circumstances
 
 ---
 
-## 📄 License
+## License
 
 This project is submitted as part of the Open Projects 2026 competition organized by the Cultural Council, IIT Roorkee.
-
----
-
-*Built with dedication at IIT Roorkee | Open Projects 2026*
