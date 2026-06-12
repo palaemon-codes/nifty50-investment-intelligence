@@ -9,7 +9,7 @@ import os
 # Project Paths
 # ============================================================
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(os.path.expanduser("~"), "Downloads", "nifty_data")
+DATA_DIR = os.path.join(BASE_DIR, "data", "nifty_data")
 MODELS_DIR = os.path.join(BASE_DIR, "models")
 REPORTS_DIR = os.path.join(BASE_DIR, "reports")
 

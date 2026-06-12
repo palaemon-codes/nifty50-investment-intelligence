@@ -15,8 +15,9 @@ env/
 # Jupyter
 .ipynb_checkpoints/
 
-# Data files — kept outside repo in ~/Downloads/nifty_data/
-data/
+# Data files — CSV files stay local, not in git
+data/nifty_data/*.csv
+data/nifty_data/*.zip
 *.csv
 *.zip
 
